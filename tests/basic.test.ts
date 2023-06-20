@@ -79,7 +79,6 @@ describe("Dispatcher basic test", () => {
         }
         await dispatcher.allDone()
         // the final result are expected to be [0,1,2,3...,...,N-1,N]
-        console.log(resultList)
         expect(resultList).toStrictEqual([...Array(TIMES).keys()])
     })
 })

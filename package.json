@@ -4,7 +4,7 @@
   "description": "A modern Asynchronous JavaScript Dispatcher that protect your transactions.",
   "main": "dist/index.js",
   "module": "es/index.js",
-  "unpkg": "dist/antd.min.js",
+  "unpkg": "dist/jispatcher.min.js",
   "typings": "es/index.d.ts",
   "files": [
     "es",
@@ -29,8 +29,11 @@
     "Thread safe",
     "High Concurrency"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "zsh2401",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/zsh2401/jispatcher"
+  },
   "devDependencies": {
     "@babel/preset-typescript": "^7.22.5",
     "@types/jest": "^29.5.2",

@@ -1,6 +1,6 @@
 {
   "name": "jispatcher",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "description": "A modern Asynchronous JavaScript Dispatcher that protect your transactions.",
   "main": "dist/index.js",
   "module": "es/index.js",

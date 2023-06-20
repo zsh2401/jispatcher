@@ -1,10 +1,10 @@
 {
   "name": "jispatcher",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "A modern Asynchronous JavaScript Dispatcher that protect your transactions.",
   "main": "dist/index.js",
   "module": "es/index.js",
-  "unpkg": "dist/jispatcher.min.js",
+  "unpkg": "dist/jispatcher.umd.js",
   "typings": "es/index.d.ts",
   "files": [
     "es",

@@ -1,9 +1,38 @@
 # ⭐️ Jispatcher
 
-A modern Asynchronous JavaScript dispatcher that enables
-tasks to be atomic operation so that protect your data.
+A modern Asynchronous JavaScript **task dispatcher** that enables
+tasks to be **atomic operation** so that protect your data and code logic.
 
-# Why we need this library
+```sh
+npm install --save jispatcher
+# or
+yarn add jispatcher
+# or
+pnpm add jispatcher
+```
+
+# Getting Started
+
+```typescript
+import { Disptacher } from "jispatcher";
+
+const dispatcher = new Dispatcher();
+function handler(): Promise<number> {
+  // entire function that passed
+  // to the invoke() will be executed
+  // one by one. Only one task is
+  // totally executed, the next
+  // will be picked.
+  return dispatcher.invoke(() => {
+    // A series of async transactions¬
+  });
+}
+```
+
+# 🧐 Wait a moment, why we need this library?
+
+Yes, I do of course know that JavaScript is a
+single thread language that there is no traditional thread safe problem. But does that really mean complete security?
 
 Considering following situation:
 There is an api that used for registering a new user.
@@ -53,10 +82,11 @@ So we need a dispatcher to make the function register
 as atomic operation. Even one million request received,
 **all of them will be handled one by one**, and keep its async features.
 
-# How to use this?
-## Make above example safe:
-```typescript
+# 😎 How to use this?
 
+## Make above example safe:
+
+```typescript
 // Got a dispatcher for register transaction.
 const dispatcher = new Dispatcher();
 /**
@@ -65,22 +95,25 @@ const dispatcher = new Dispatcher();
  */
 async function register(userName: string, password: string): Promise<number> {
   return dispatcher.invoke(async () => {
+    if (await isUserNameOccupied()) {
+      throw new Error("User name has been used, please choose another.");
+    }
 
-        if (await isUserNameOccupied()) {
-            throw new Error("User name has been used, please choose another.");
-        }
+    const user = new User();
+    user.name = userName;
+    user.password = password;
+    const insertedUser = await insertToDB(user);
 
-        const user = new User();
-        user.name = userName;
-        user.password = password;
-        const insertedUser = await insertToDB(user);
-
-        return insertedUser.id;
+    return insertedUser.id;
   });
 }
 ```
 
-# Contribute
+# 😻 Contribute
+
+All PRs are always welcomed.
+
 ```sh
+git clone git@github.com:zsh2401/jispatcher.git
 pnpm install
 ```

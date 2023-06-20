@@ -1,7 +1,7 @@
 {
   "name": "jispatcher",
   "version": "1.0.0",
-  "description": "",
+  "description": "A modern Asynchronous JavaScript Dispatcher that protect your transactions.",
   "main": "dist/index.js",
   "module": "es/index.js",
   "unpkg": "dist/antd.min.js",
@@ -21,7 +21,14 @@
     "test": "jest",
     "prepare": "husky install"
   },
-  "keywords": [],
+  "keywords": [
+    "Dispatcher",
+    "async",
+    "Promise",
+    "Asynchronous",
+    "Thread safe",
+    "High Concurrency"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
